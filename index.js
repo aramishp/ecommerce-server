@@ -27,7 +27,7 @@ const quantityRoute = require('./routes/n-products');
 app.use(cors({
     origin: ['https://free-market-ecommerce.netlify.app'],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+    credentials: false,
 }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
