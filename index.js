@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const session = require("express-session");
+const session = require("cookie-session");
 const cookieParser = require("cookie-parser");
 
 const { PORT } = require('./deploy-info/config');
