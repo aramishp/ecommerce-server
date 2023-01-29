@@ -27,18 +27,11 @@ const quantityRoute = require('./routes/n-products');
 app.use(cors({
     origin: ["https://free-market-ecommerce.netlify.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+    credentials: true,
 }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-app.use(function(req, res, next) {
-    res.header('Access-Controll-Allow-Origin', "*");
-    res.header('Access-Controll-Allow-Methods', "GET, PUT, POST, DELETE");
-    res.header('Access-Controll-Allow-Headers', "Content-type");
-    next();
-})
 
 app.use(session({
     key: "sessionID",
