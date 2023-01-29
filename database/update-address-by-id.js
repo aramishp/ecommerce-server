@@ -1,12 +1,11 @@
 const { areNumbers } = require('../utils/check-are-number');
 const db = require('./db');
 
-function getFavoritesId(id) {
+function updateAddressById(id, address) {
     return new Promise((resolve, reject) => {
         if(!areNumbers(id)) return reject(false);
         db.query(
-            "SELECT product_ID FROM wishlists WHERE user_ID = ?;",
-            id,
+            `UPDATE users SET address = '${address}' WHERE ID = ${id}`,
             (err, result) => {
                 if(err) {
                     return reject(err);
@@ -18,4 +17,4 @@ function getFavoritesId(id) {
     });
 }
 
-module.exports = {getFavoritesId};
+module.exports = {updateAddressById};

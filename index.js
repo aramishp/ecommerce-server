@@ -5,8 +5,9 @@ const cors = require("cors");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 
-const PORT = process.env.PORT || 1234;
+const { PORT } = require('./deploy-info/config');
 
+const themeRoute = require('./routes/theme');
 const resetPasswordRoute = require('./routes/resetpassword');
 const forgotPasswordRoute = require('./routes/forgot-password');
 const deleteRoute = require('./routes/delete');
@@ -25,7 +26,7 @@ const quantityRoute = require('./routes/n-products');
 
 app.use(cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
 app.use(express.json());
@@ -61,11 +62,17 @@ app.use((req, res, next) => {
 })
 */
 
+app.use('/theme', themeRoute);
 app.use('/favorites', favoritesRoute);
 app.use('/cart', cartRoute);
 app.use('/profile', profileRoute);
 app.use('/history', historyRoute);
 app.use('/purchases', purchasesRoute);
+
+app.post('/closesession', (req, res) => {
+    req.session.destroy();
+    res.sendStatus(200);
+})
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

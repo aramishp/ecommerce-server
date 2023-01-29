@@ -18,10 +18,8 @@ function sendEmail(email, link) {
 
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
-            console.log(error);
           return(error);
         } else {
-          console.log(info);
           return info.response;
         }
     });

@@ -3,7 +3,7 @@ const {deleteFromTable} = require('../database/delete-from-table');
 
 const router = Router();
 
-router.post('', async (req, res) => {
+router.delete('', async (req, res) => {
     const { product, table } = req.body;
     await deleteFromTable(req.session.sessionID, product, table)
     .then(() => {

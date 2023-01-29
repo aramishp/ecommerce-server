@@ -27,7 +27,7 @@ router.get('/:id/:token', async (req, res) => {
     }
 })
 
-router.post('/:id/:token', async (req, res) => {
+router.put('/:id/:token', async (req, res) => {
     const { id, token } = req.params;
     if(!areValidStrings(id, token)) res.sendStatus(400);
     else {
