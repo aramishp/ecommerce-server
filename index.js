@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const session = require("cookie-session");
+const session = require("express-session");
 const cookieParser = require("cookie-parser");
 
 const { PORT } = require('./deploy-info/config');
@@ -25,9 +25,9 @@ const searchRouter = require('./routes/products');
 const quantityRoute = require('./routes/n-products');
 
 app.use(cors({
-    origin: ["https://free-market-ecommerce.netlify.app"],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    credentials: true
 }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
