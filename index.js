@@ -25,7 +25,7 @@ const searchRouter = require('./routes/products');
 const quantityRoute = require('./routes/n-products');
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://free-market-ecommerce.netlify.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
