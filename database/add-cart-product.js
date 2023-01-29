@@ -1,7 +1,9 @@
+const { areNumbers } = require('../utils/check-are-number');
 const db = require('./db');
 
 function addProductToCart(userId, id) {
     return new Promise((resolve, reject) => {
+        if(!areNumbers(userId, id)) return reject(false);
         db.query(
             "SELECT user_ID, product_ID FROM carts WHERE user_ID = ? AND product_ID = ?",
             [userId, id],

@@ -4,7 +4,7 @@ const { areValidStrings } = require('../utils/validate-input');
 
 const router = Router();
 
-router.get('/:product',async (req, res) => {
+router.get('/:product', async (req, res) => {
     const product = req.params.product;
     if(!areValidStrings(product)) res.sendStatus(401);
     else {

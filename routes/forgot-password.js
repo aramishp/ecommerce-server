@@ -8,7 +8,7 @@ const JWT_SECRET = "tb23h1n8ui1n989o1mt56h1nrb3v1wdcw()31n68ujkyk5";
 
 const router = Router();
 
-router.post('', async (req, res) => {
+router.put('', async (req, res) => {
     const { email } = req.body;
     if(!areValidStrings(email)) res.sendStatus(400); 
     else {
